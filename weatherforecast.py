@@ -173,8 +173,8 @@ def main():
     write_data_json(list_dt_day)
     weather_data = everyhourhorecast()
     write_data_everyhour_json(weather_data)
-    # list_hour = select_data_json(weather_data)
-    # write_data_everyhour_exact_json(list_hour)
+    list_hour = select_data_json(weather_data)
+    write_data_everyhour_exact_json(list_hour)
     
 if __name__ == "__main__":
     main()
