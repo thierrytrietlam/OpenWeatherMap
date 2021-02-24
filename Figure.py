@@ -13,6 +13,8 @@ from pprint import pprint #Uncomment line 63
 import json
 import os
 import matplotlib.pyplot as plt
+import numpy as np
+
 # {} type dict
 # [] type list
 
@@ -40,35 +42,57 @@ for item in current_directory:
         #Define File Path for Output Plots
         output_plot = current_path + '/' + item + '/'
 
-def open_json():
+def hour_scatter_interval():
     # Open a JSON file
     # with open('ChasseneuilWeather_Final.json') as json_file:
-    with open ('exact_everyhourforecast2021-01-06-16.json') as json_file:
+    with open ('ChasseneuilWeather_Final.json') as json_file:
         data = json.load(json_file)
-    pprint(data[0]['dt']) # Type list
+    pprint(data[0]['dt']) # Type list 1609945200
+    # print(datetime.datetime.fromtimestamp(data[0]['dt']).strftime(%h-%d'))
+    # 16-06
+
+   
     list_dt = []
     list_temp = []
     for i in range(len(data)):
-        list_dt.append(data[i]['dt'])
+        list_dt.append(datetime.datetime.fromtimestamp(data[i]['dt']).strftime('%Hh-%d/%m'))
         list_temp.append(data[i]['temp'])
     print(list_dt)
     print(list_temp)
-    
+
     #Plot Latitude Data Versus Maximum Temperature Data
     F1, AX1 = plt.subplots()
     AX1.scatter(list_dt, list_temp, facecolor = 'blue', edgecolor = 'black')
     AX1.grid()
+    plt.xticks(np.arange(0,len(list_dt),len(list_dt)/6), rotation='vertical')
     AX1.set_title('Temperature vs Time')
     AX1.set_xlabel('Time')
     AX1.set_ylabel('Temperature (K)')
     plt.savefig(output_plot + 'Temperature_vs_Time.png')
-    plt.show()
-
-    return data   
 
     
+    # fig, ax = plt.subplots(figsize=(12, 6))
+
+    # x = list_dt()
+    # y = list_temp
+    # ax.plot(x, y, color='blue', label='Temperature_vs_Time')
+    
+    plt.show()
+    return data, list_dt, list_temp   
+
+def hour_line_interval(list_dt, list_temp):
+    F1, AX1 = plt.subplots()
+    AX1.scatter(list_dt, list_temp, facecolor = 'blue', edgecolor = 'black')
+    AX1.grid()
+    plt.xticks(np.arange(0,len(list_dt),len(list_dt)/5), rotation='vertical')
+    AX1.set_title('Temperature vs Time')
+    AX1.set_xlabel('Time')
+    AX1.set_ylabel('Temperature (K)')
+    plt.savefig(output_plot + 'Temperature_vs_Time.png')
+    
 def main():   
-    data = open_json()   
+    data, list_dt, list_temp  = hour_scatter_interval() 
+    # hour_line_interval()
     
 if __name__ == "__main__":
     main()
