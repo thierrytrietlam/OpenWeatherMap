@@ -43,7 +43,7 @@ for item in current_directory:
 def open_json():
     # Open a JSON file
     # with open('ChasseneuilWeather_Final.json') as json_file:
-    with open ('ChasseneuilWeather_Final.json') as json_file:
+    with open ('exact_everyhourforecast2021-01-06-16.json') as json_file:
         data = json.load(json_file)
     pprint(data[0]['dt']) # Type list
     list_dt = []
