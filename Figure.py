@@ -42,7 +42,7 @@ for item in current_directory:
         #Define File Path for Output Plots
         output_plot = current_path + '/' + item + '/'
 
-def hour_scatter_interval():
+def hour_scatter_interval_temp_time():
     # Open a JSON file
     # with open('ChasseneuilWeather_Final.json') as json_file:
     with open ('ChasseneuilWeather_Final.json') as json_file:
@@ -54,9 +54,11 @@ def hour_scatter_interval():
    
     list_dt = []
     list_temp = []
+    list_hum = []
     for i in range(len(data)):
         list_dt.append(datetime.datetime.fromtimestamp(data[i]['dt']).strftime('%Hh-%d/%m'))
         list_temp.append(data[i]['temp'])
+        list_hum.append(data[i]['humidity'])
     print(list_dt)
     print(list_temp)
 
@@ -73,7 +75,7 @@ def hour_scatter_interval():
     plt.show()
     return data, list_dt, list_temp   
 
-def hour_line_interval(list_dt, list_temp):
+def hour_line_interval_temp_time(list_dt, list_temp):
     F1, AX1 = plt.subplots()
     AX1.plot(list_dt, list_temp)
     AX1.grid()
@@ -97,8 +99,8 @@ def hour_bar_interval(list_dt, list_temp):
     
     
 def main():   
-    data, list_dt, list_temp  = hour_scatter_interval() 
-    hour_line_interval(list_dt, list_temp)
+    data, list_dt, list_temp  = hour_scatter_interval_temp_time()
+    hour_line_interval_temp_time(list_dt, list_temp)
     hour_bar_interval(list_dt, list_temp)
 
     
