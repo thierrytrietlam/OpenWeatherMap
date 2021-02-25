@@ -82,17 +82,19 @@ def hour_scatter_interval():
 
 def hour_line_interval(list_dt, list_temp):
     F1, AX1 = plt.subplots()
-    AX1.scatter(list_dt, list_temp, facecolor = 'blue', edgecolor = 'black')
+    AX1.plot(list_dt, list_temp)
     AX1.grid()
     plt.xticks(np.arange(0,len(list_dt),len(list_dt)/5), rotation='vertical')
-    AX1.set_title('Temperature vs Time')
+    AX1.set_title('Test')
     AX1.set_xlabel('Time')
     AX1.set_ylabel('Temperature (K)')
-    plt.savefig(output_plot + 'Temperature_vs_Time.png')
+    plt.savefig(output_plot + 'Test.png')
+    plt.show()
     
 def main():   
     data, list_dt, list_temp  = hour_scatter_interval() 
-    # hour_line_interval()
+    hour_line_interval(list_dt, list_temp)
+
     
 if __name__ == "__main__":
     main()
