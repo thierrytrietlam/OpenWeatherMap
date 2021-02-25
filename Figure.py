@@ -57,9 +57,9 @@ def ChasseneuilWeather_Final():
         list_dt.append(datetime.datetime.fromtimestamp(data[i]['dt']).strftime('%Hh-%d/%m'))
         list_temp.append(data[i]['temp'])
         list_hum.append(data[i]['humidity'])
-    print(list_dt)
-    print(list_temp)
-    return data, list_dt, list_temp  
+    # print(list_dt)
+    # print(list_temp)
+    return data, list_dt, list_temp, list_hum
     
 def hour_scatter_interval_temp_time(list_dt, list_temp):
     #Plot Latitude Data Versus Maximum Temperature Data
@@ -98,7 +98,7 @@ def hour_bar_interval(list_dt, list_temp):
     
     
 def main():   
-    data, list_dt, list_temp  = ChasseneuilWeather_Final()
+    data, list_dt, list_temp, list_hum  = ChasseneuilWeather_Final()
     hour_scatter_interval_temp_time(list_dt, list_temp)
     hour_line_interval_temp_time(list_dt, list_temp)
     hour_bar_interval(list_dt, list_temp)
