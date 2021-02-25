@@ -42,16 +42,14 @@ for item in current_directory:
         #Define File Path for Output Plots
         output_plot = current_path + '/' + item + '/'
 
-def hour_scatter_interval_temp_time():
+def ChasseneuilWeather_Final():
     # Open a JSON file
     # with open('ChasseneuilWeather_Final.json') as json_file:
     with open ('ChasseneuilWeather_Final.json') as json_file:
         data = json.load(json_file)
     pprint(data[0]['dt']) # Type list 1609945200
     # print(datetime.datetime.fromtimestamp(data[0]['dt']).strftime(%h-%d'))
-    # 16-06
-
-   
+    # 16-06   
     list_dt = []
     list_temp = []
     list_hum = []
@@ -61,7 +59,9 @@ def hour_scatter_interval_temp_time():
         list_hum.append(data[i]['humidity'])
     print(list_dt)
     print(list_temp)
-
+    return data, list_dt, list_temp  
+    
+def hour_scatter_interval_temp_time(list_dt, list_temp):
     #Plot Latitude Data Versus Maximum Temperature Data
     F1, AX1 = plt.subplots()
     AX1.scatter(list_dt, list_temp, facecolor = 'blue', edgecolor = 'black')
@@ -73,7 +73,6 @@ def hour_scatter_interval_temp_time():
     plt.savefig(output_plot + 'Temperature_vs_Time.png')
     
     plt.show()
-    return data, list_dt, list_temp   
 
 def hour_line_interval_temp_time(list_dt, list_temp):
     F1, AX1 = plt.subplots()
@@ -99,7 +98,8 @@ def hour_bar_interval(list_dt, list_temp):
     
     
 def main():   
-    data, list_dt, list_temp  = hour_scatter_interval_temp_time()
+    data, list_dt, list_temp  = ChasseneuilWeather_Final()
+    hour_scatter_interval_temp_time(list_dt, list_temp)
     hour_line_interval_temp_time(list_dt, list_temp)
     hour_bar_interval(list_dt, list_temp)
 
