@@ -85,10 +85,10 @@ def hour_line_interval(list_dt, list_temp):
     AX1.plot(list_dt, list_temp)
     AX1.grid()
     plt.xticks(np.arange(0,len(list_dt),len(list_dt)/5), rotation='vertical')
-    AX1.set_title('Test')
+    AX1.set_title('Test_Line')
     AX1.set_xlabel('Time')
     AX1.set_ylabel('Temperature (K)')
-    plt.savefig(output_plot + 'Test.png')
+    plt.savefig(output_plot + 'Test_Line.png')
     plt.show()
     
 def main():   
