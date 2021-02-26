@@ -6,9 +6,7 @@ Created on Fri Jan  1 18:47:23 2021
 """
 
 
-import requests
 import datetime
-import time
 from pprint import pprint #Uncomment line 63
 import json
 import os
