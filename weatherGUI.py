@@ -148,16 +148,16 @@ def write_pressure_on_bar_chart(bar_p_min, bar_p_max):
             
 if __name__ == '__main__':
     # Show temperature
-    days, temp_min, temp_max = get_temperature()
-    init_plot_t()
-    bar_min, bar_max = plot_temperatures(days, temp_min, temp_max)
-    label_xaxis(days)
-    # Add the Temperatures as Labels on the Bar Chart
-    write_temperatures_on_bar_chart(bar_min, bar_max)
-    fig1 = plt.gcf()
-    plt.show()
-    plt.draw()
-    fig1.savefig("forecast_temp_" +a+".png")
+    # days, temp_min, temp_max = get_temperature()
+    # init_plot_t()
+    # bar_min, bar_max = plot_temperatures(days, temp_min, temp_max)
+    # label_xaxis(days)
+    # # Add the Temperatures as Labels on the Bar Chart
+    # write_temperatures_on_bar_chart(bar_min, bar_max)
+    # fig1 = plt.gcf()
+    # plt.show()
+    # plt.draw()
+    # fig1.savefig("forecast_temp_" +a+".png")
 
 
     
