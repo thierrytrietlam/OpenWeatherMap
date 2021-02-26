@@ -1,4 +1,4 @@
-l# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """
 Created on Fri Dec 25 19:11:57 2020
 
@@ -162,14 +162,14 @@ if __name__ == '__main__':
 
     
     # Show humidity
-    # days, hum_min, hum_max = get_humidity()
-    # init_plot_h()
-    # bar_h_min, bar_h_max = plot_humidity(days, hum_min, hum_max)
-    # label_xaxis(days)
-    # write_humidity_on_bar_chart(bar_h_min, bar_h_max)
-    # fig2 = plt.gcf()
-    # plt.show()
-    # fig2.savefig("forecast_humi_" +a+".png")
+    days, hum_min, hum_max = get_humidity()
+    init_plot_h()
+    bar_h_min, bar_h_max = plot_humidity(days, hum_min, hum_max)
+    label_xaxis(days)
+    write_humidity_on_bar_chart(bar_h_min, bar_h_max)
+    fig2 = plt.gcf()
+    plt.show()
+    fig2.savefig("forecast_humi_" +a+".png")
 
     # Show pressure
     days, pre_min, pre_max = get_pressure()
