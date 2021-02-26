@@ -165,16 +165,16 @@ def will_be():
     print("Hurricane: ", forecaster.will_be_hurricane_at(datetime(yyyy, mm, dd, hh, 0)))
 
 def main():
-    # weather_at_time()
-    # weather_tomorrow()
-    # will_have()
-    # will_be()     
-    # list_dt_day = threehoursforecast(weather_list)
-    # write_data_json(list_dt_day)
-    # weather_data = everyhourhorecast()
-    # write_data_everyhour_json(weather_data)
-    # list_hour = select_data_json(weather_data)
-    # write_data_everyhour_exact_json(list_hour)
+    weather_at_time()
+    weather_tomorrow()
+    will_have()
+    will_be()     
+    list_dt_day = threehoursforecast(weather_list)
+    write_data_json(list_dt_day)
+    weather_data = everyhourhorecast()
+    write_data_everyhour_json(weather_data)
+    list_hour = select_data_json(weather_data)
+    write_data_everyhour_exact_json(list_hour)
     
 if __name__ == "__main__":
     main()
