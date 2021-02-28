@@ -165,10 +165,10 @@ def will_be():
     print("Hurricane: ", forecaster.will_be_hurricane_at(datetime(yyyy, mm, dd, hh, 0)))
 
 def main():
-    weather_at_time()
-    weather_tomorrow()
-    will_have()
-    will_be()     
+    # weather_at_time()
+    # weather_tomorrow()
+    # will_have()
+    # will_be()     
     list_dt_day = threehoursforecast(weather_list)
     write_data_json(list_dt_day)
     weather_data = everyhourhorecast()
