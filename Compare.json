@@ -44,17 +44,6 @@
    "weather_description": "light intensity drizzle"
  },
  {
-   "dt": 1612576800,
-   "temp": 281.63,
-   "temp_min": 280.925,
-   "temp_max": 282.04,
-   "pressure": 1007,
-   "humidity": 100,
-   "wind_speed": 3.09,
-   "wind_deg": 40,
-   "weather_description": "mist"
- },
- {
    "dt": 1612580400,
    "temp": 281.62,
    "temp_min": 280.925,
@@ -121,17 +110,6 @@
    "weather_description": "light rain"
  },
  {
-   "dt": 1612598400,
-   "temp": 281.55,
-   "temp_min": 281.15,
-   "temp_max": 282.04,
-   "pressure": 1003,
-   "humidity": 100,
-   "wind_speed": 4.12,
-   "wind_deg": 20,
-   "weather_description": "fog"
- },
- {
    "dt": 1612602000,
    "temp": 281.37,
    "temp_min": 281.15,
@@ -141,17 +119,6 @@
    "wind_speed": 4.12,
    "wind_deg": 40,
    "weather_description": "light rain"
- },
- {
-   "dt": 1612602000,
-   "temp": 281.37,
-   "temp_min": 281.15,
-   "temp_max": 281.831,
-   "pressure": 1003,
-   "humidity": 100,
-   "wind_speed": 4.12,
-   "wind_deg": 40,
-   "weather_description": "fog"
  },
  {
    "dt": 1612605600,
@@ -165,17 +132,6 @@
    "weather_description": "light rain"
  },
  {
-   "dt": 1612605600,
-   "temp": 281.55,
-   "temp_min": 281.15,
-   "temp_max": 282.04,
-   "pressure": 1002,
-   "humidity": 100,
-   "wind_speed": 4.12,
-   "wind_deg": 10,
-   "weather_description": "fog"
- },
- {
    "dt": 1612609200,
    "temp": 281.36,
    "temp_min": 281.014,
@@ -185,17 +141,6 @@
    "wind_speed": 4.12,
    "wind_deg": 10,
    "weather_description": "moderate rain"
- },
- {
-   "dt": 1612609200,
-   "temp": 281.36,
-   "temp_min": 281.014,
-   "temp_max": 281.824,
-   "pressure": 1002,
-   "humidity": 100,
-   "wind_speed": 4.12,
-   "wind_deg": 10,
-   "weather_description": "fog"
  },
  {
    "dt": 1612612800,
@@ -209,17 +154,6 @@
    "weather_description": "moderate rain"
  },
  {
-   "dt": 1612612800,
-   "temp": 281.36,
-   "temp_min": 281.014,
-   "temp_max": 281.824,
-   "pressure": 1001,
-   "humidity": 100,
-   "wind_speed": 3.6,
-   "wind_deg": 10,
-   "weather_description": "mist"
- },
- {
    "dt": 1612616400,
    "temp": 281.36,
    "temp_min": 281.014,
@@ -229,17 +163,6 @@
    "wind_speed": 4.12,
    "wind_deg": 350,
    "weather_description": "moderate rain"
- },
- {
-   "dt": 1612616400,
-   "temp": 281.36,
-   "temp_min": 281.014,
-   "temp_max": 281.824,
-   "pressure": 1001,
-   "humidity": 100,
-   "wind_speed": 4.12,
-   "wind_deg": 350,
-   "weather_description": "mist"
  },
  {
    "dt": 1612620000,
@@ -317,17 +240,6 @@
    "wind_speed": 6.17,
    "wind_deg": 320,
    "weather_description": "light intensity drizzle"
- },
- {
-   "dt": 1612641600,
-   "temp": 280.6,
-   "temp_min": 280.15,
-   "temp_max": 280.93,
-   "pressure": 1001,
-   "humidity": 100,
-   "wind_speed": 6.17,
-   "wind_deg": 320,
-   "weather_description": "mist"
  },
  {
    "dt": 1612645200,
