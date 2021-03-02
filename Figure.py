@@ -43,8 +43,8 @@ for item in current_directory:
 
 def ChasseneuilWeather_Final():
     # Open a JSON file
-    # with open('ChasseneuilWeather_Final.json') as json_file:
-    with open ('ChasseneuilWeather_Final_Update_Need.json') as json_file:
+    with open('ChasseneuilWeather_Final.json') as json_file:
+    # with open ('ChasseneuilWeather_Final_Update_Need.json') as json_file:
         data = json.load(json_file)
     # pprint(data[0]['dt']) # Type list 1609945200
     # print(datetime.datetime.fromtimestamp(data[0]['dt']).strftime(%h-%d'))
@@ -94,16 +94,28 @@ def hour_scatter_interval_temp_time(list_dt, list_temp):
     plt.savefig(output_plot + 'Temperature_vs_Time.png')
     
     plt.show()
+    
+def hour_scatter_interval_temp_humd(list_hum, list_temp):
+    #Plot Latitude Data Versus Maximum Temperature Data
+    F1, AX1 = plt.subplots()
+    AX1.scatter(list_hum, list_temp, facecolor = 'blue', edgecolor = 'black')
+    AX1.grid()
+    AX1.set_title('Humidity vs Temperature 01/02/2021-06/02/2021')
+    AX1.set_xlabel('Humidity')
+    AX1.set_ylabel('Temperature (K)')
+    plt.savefig(output_plot + 'Humidity_vs_Time.png')
+    
+    plt.show()
 
 def hour_line_interval_temp_time(list_dt, list_temp):
     F1, AX1 = plt.subplots()
     AX1.plot(list_dt, list_temp)
     AX1.grid()
     plt.xticks(np.arange(0,len(list_dt),len(list_dt)/5), rotation='vertical')
-    AX1.set_title('Test_Line')
+    AX1.set_title('Temperature vs Time from 1979-2021')
     AX1.set_xlabel('Time')
     AX1.set_ylabel('Temperature (K)')
-    plt.savefig(output_plot + 'Test_Line.png')
+    plt.savefig(output_plot + 'Temperature vs Time_Line Chart.png')
     plt.show()
     
 def hour_bar_interval(list_dt, list_temp):
@@ -134,6 +146,7 @@ def main():
     # hour_scatter_interval_temp_time(list_dt, list_temp)
     hour_line_interval_temp_time(list_dt, list_temp)
     # hour_bar_interval(list_dt, list_temp)
+    hour_scatter_interval_temp_humd(list_hum, list_temp)
 
     
 if __name__ == "__main__":
