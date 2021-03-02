@@ -234,7 +234,7 @@ def main():
     dt_unix = date_to_unix_timestamp(yyyy,mm,dd)
     Final_url = url_(base_url,lat_data,lon_data,dt_unix,API_key)
     weather_data, weather_data_str = create_json(Final_url)
-    # print_json(weather_data) #Only show data
+    print_json(weather_data) #Only show data
     write_Json(yyyy,mm,dd,weather_data,weather_data_str)
     
     list_dt_day = select_data_json(weather_data)
