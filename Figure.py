@@ -66,21 +66,27 @@ def ChasseneuilWeather_Final():
 def forecast():
     # Open a JSON file
     # with open('ChasseneuilWeather_Final.json') as json_file:
-    with open ('ChasseneuilWeather_Final_Update_Need.json') as json_file:
-        data = json.load(json_file)
-    pprint(data[0]['dt']) # Type list 1609945200
-    # print(datetime.datetime.fromtimestamp(data[0]['dt']).strftime(%h-%d'))
-    # 16-06   
-    list_dt = []
-    list_temp = []
-    list_hum = []
-    for i in range(len(data)):
-        list_dt.append(datetime.datetime.fromtimestamp(data[i]['dt']).strftime('%Hh-%d/%m'))
-        list_temp.append(data[i]['temp'])
-        list_hum.append(data[i]['humidity'])
-    # print(list_dt)
-    # print(list_temp)
-    return data, list_dt, list_temp, list_hum
+    with open ('exact_everyhourforecast2021-01-11-00.json') as json_file:
+        data1 = json.load(json_file)
+    list_dt1 = []
+    list_temp1 = []
+    list_hum1 = []
+    for i in range(len(data1)):
+        list_dt1.append(datetime.datetime.fromtimestamp(data1[i]['dt']).strftime('%Hh-%d/%m'))
+        list_temp1.append(data1[i]['temp'])
+        list_hum1.append(data1[i]['humidity'])
+
+    with open ('Compare.json') as json_file:
+        data2 = json.load(json_file)   
+    list_dt2 = []
+    list_temp2 = []
+    list_hum2 = []
+    for i in range(len(data2)):
+        list_dt2.append(datetime.datetime.fromtimestamp(data2[i]['dt']).strftime('%Hh-%d/%m'))
+        list_temp2.append(data2[i]['temp'])
+        list_hum2.append(data2[i]['humidity'])
+        
+    return list_dt1, list_temp1, list_hum1, list_dt2, list_temp2, list_hum2
     
 def hour_scatter_interval_temp_time(list_dt, list_temp):
     #Plot Latitude Data Versus Maximum Temperature Data
@@ -95,7 +101,7 @@ def hour_scatter_interval_temp_time(list_dt, list_temp):
     
     plt.show()
     
-def hour_scatter_interval_temp_humd(list_hum, list_temp):
+def hour_scatter_interval_temp_hum(list_hum, list_temp):
     #Plot Latitude Data Versus Maximum Temperature Data
     F1, AX1 = plt.subplots()
     AX1.scatter(list_hum, list_temp, facecolor = 'blue', edgecolor = 'black')
@@ -112,7 +118,7 @@ def hour_line_interval_temp_time(list_dt, list_temp):
     AX1.plot(list_dt, list_temp)
     AX1.grid()
     plt.xticks(np.arange(0,len(list_dt),len(list_dt)/5), rotation='vertical')
-    AX1.set_title('Temperature vs Time from 1979-2021')
+    AX1.set_title('Temperature vs Time from 01/02/2021-06/02/2021')
     AX1.set_xlabel('Time')
     AX1.set_ylabel('Temperature (K)')
     plt.savefig(output_plot + 'Temperature vs Time_Line Chart.png')
@@ -143,10 +149,11 @@ def compare_forecast(list_dt, list_temp):
     
 def main():   
     data, list_dt, list_temp, list_hum  = ChasseneuilWeather_Final()
+    list_dt1, list_temp1, list_hum1, list_dt2, list_temp2, list_hum2 = forecast()
     # hour_scatter_interval_temp_time(list_dt, list_temp)
     hour_line_interval_temp_time(list_dt, list_temp)
     # hour_bar_interval(list_dt, list_temp)
-    hour_scatter_interval_temp_humd(list_hum, list_temp)
+    # hour_scatter_interval_temp_hum(list_hum, list_temp)
 
     
 if __name__ == "__main__":
