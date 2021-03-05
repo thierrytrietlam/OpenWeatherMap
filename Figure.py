@@ -43,8 +43,8 @@ for item in current_directory:
 
 def ChasseneuilWeather_Final():
     # Open a JSON file
-    with open('ChasseneuilWeather_Final.json') as json_file:
-    # with open ('ChasseneuilWeather_Final_Update_Need.json') as json_file:
+    # with open('ChasseneuilWeather_Final.json') as json_file:
+    with open ('ChasseneuilWeather_Final_Update_Need.json') as json_file:
         data = json.load(json_file)
     # pprint(data[0]['dt']) # Type list 1609945200
     # print(datetime.datetime.fromtimestamp(data[0]['dt']).strftime(%h-%d'))
@@ -159,10 +159,10 @@ def main():
     data, list_dt, list_temp, list_hum  = ChasseneuilWeather_Final()
     list_dt1, list_temp1, list_hum1, list_dt2, list_temp2, list_hum2 = forecast()
     # hour_scatter_interval_temp_time(list_dt, list_temp)
-    # hour_line_interval_temp_time(list_dt, list_temp)
+    hour_line_interval_temp_time(list_dt, list_temp)
     # hour_bar_interval(list_dt, list_temp)
     # hour_scatter_interval_temp_hum(list_hum, list_temp)
-    compare_forecast(list_dt1, list_temp1, list_hum1, list_dt2, list_temp2, list_hum2)
+    # compare_forecast(list_dt1, list_temp1, list_hum1, list_dt2, list_temp2, list_hum2)
     
 if __name__ == "__main__":
     main()

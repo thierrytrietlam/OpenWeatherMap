@@ -10,22 +10,28 @@ $ pip install pyowm
 
 import pyowm
 from api_key import API_KEY
+import time
+
 
 owm = pyowm.OWM(API_KEY)
 mgr = owm.weather_manager()
 obs = mgr.weather_at_id(3026391)
 weather = obs.weather
+degree_sign= u'\N{DEGREE SIGN}' # Symbol of temperature
 
+print(time.strftime("%Y-%m-%d-%H-%M-%S"))
 # Status of current weather
 weather = obs.weather
 print("Status of current weather: ",weather.detailed_status)
 
 # Current temperature
-temperature = weather.temperature(unit='celsius')['temp_min']
-temperature1 = weather.temperature(unit='celsius')['temp']
-temperature2 = weather.temperature(unit='celsius')['temp_max']
-print("min",temperature,"normal",temperature1,"max",temperature2)
-
+temperature = weather.temperature(unit='kelvin')['temp_min']
+temperature1 = weather.temperature(unit='kelvin')['temp']
+temperature2 = weather.temperature(unit='kelvin')['temp_max']
+# print("min",temperature,"normal",temperature1,"max",temperature2)
+print("Minimum temperature",temperature,f'{degree_sign}K')
+print("Normal temperature",temperature1,f'{degree_sign}K')
+print("Maximum temperature",temperature2,f'{degree_sign}K')
 ## Weather Info
 # Humidity
 humidity = weather.humidity
@@ -39,11 +45,11 @@ print(f'The current cloud is {clouds}%')
 
 # Sunrise and Sunset times
 print("Sunrise: ",weather.sunrise_time(timeformat='iso'))
-print(weather.sunrise_time())
+# print(weather.sunrise_time())
 # Get the sunset time in the GMT timezone in the unix time format
 sunset_unix = weather.sunset_time()
 print("Sunset: ", weather.sunset_time(timeformat='iso'))
-print(sunset_unix)
+# print(sunset_unix)
  
 # # Create `pytz` timezone objects
 # eastern = pytz.timezone('US/Eastern')
