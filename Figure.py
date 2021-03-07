@@ -20,7 +20,6 @@ import numpy as np
 #Define Current Path & Items in Current Working Directory
 current_path = os.getcwd()
 current_directory = os.listdir()
-
 #Loop Through Items in Current Working Directory
 for item in current_directory:
     
