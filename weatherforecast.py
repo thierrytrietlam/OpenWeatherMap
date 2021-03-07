@@ -55,7 +55,7 @@ forecaster = mgr.forecast_at_place('Chasseneuil-du-Poitou, FR', '3h')
 forecast = forecaster.forecast
 weather_list = forecast.weathers
 a = datetime.now().strftime("%Y-%m-%d-%H")
-time.strftime("%Y-%m-%d-%H-%M-%S")
+# time.strftime("%Y-%m-%d-%H-%M-%S")
 print(a)
 print(type(a))
 
