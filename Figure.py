@@ -45,8 +45,8 @@ def ChasseneuilWeather_Final():
     # with open('ChasseneuilWeather_Final.json') as json_file:
     with open ('ChasseneuilWeather_Final_Update_Need.json') as json_file:
         data = json.load(json_file)
-    # pprint(data[0]['dt']) # Type list 1609945200
-    # print(datetime.datetime.fromtimestamp(data[0]['dt']).strftime(%h-%d'))
+    pprint(data[0]['dt']) # Type list 1609945200
+    print(datetime.datetime.fromtimestamp(data[0]['dt']).strftime(%h-%d'))
     # 16-06   
     list_dt = []
     list_temp = []
