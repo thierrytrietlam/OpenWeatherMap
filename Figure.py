@@ -58,7 +58,7 @@ def ChasseneuilWeather_Final():
         list_dt.append(datetime.datetime.fromtimestamp(data[i]['dt']).strftime('%Hh-%d/%m/%y'))
         list_temp.append(data[i]['temp'])
         list_hum.append(data[i]['humidity'])
-    print(list_dt)
+    # print(list_dt)
     # print(list_temp)
     return data, list_dt, list_temp, list_hum
 
@@ -74,9 +74,9 @@ def forecast():
         list_dt1.append(datetime.datetime.fromtimestamp(data1[i]['dt']).strftime('%Hh-%d/%m'))
         list_temp1.append(data1[i]['temp'])
         list_hum1.append(data1[i]['humidity'])
-    print(len(list_dt1))
+    # print(len(list_dt1))
     # print(list_dt1)
-    print(list_temp1)
+    # print(list_temp1)
 
     with open ('Compare.json') as json_file:
         data2 = json.load(json_file)   
@@ -89,7 +89,7 @@ def forecast():
         list_hum2.append(data2[i]['humidity'])
     # print(len(list_dt2)) 
     # print(list_dt2)
-    print(list_temp2)
+    # print(list_temp2)
     return list_dt1, list_temp1, list_hum1, list_dt2, list_temp2, list_hum2
     
 def hour_scatter_interval_temp_time(list_dt, list_temp):
