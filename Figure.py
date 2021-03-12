@@ -7,7 +7,7 @@ Created on Fri Jan  1 18:47:23 2021
 
 
 import datetime
-from pprint import pprint #Uncomment line 63
+from pprint import pprint 
 import json
 import os
 import matplotlib.pyplot as plt
@@ -61,9 +61,10 @@ def ChasseneuilWeather_Final():
 
         list_temp.append(data[i]['temp'])
         list_hum.append(data[i]['humidity'])
-    print(list_dt[0])
+    # print(list_dt[0])
+    # print(list_dt_year[0])
     # print(list_temp)
-    return data, list_dt, list_temp, list_hum
+    return data, list_dt, list_temp, list_hum, list_dt_year
 
 def forecast():
     # Open a JSON file
@@ -92,16 +93,20 @@ def forecast():
     # print(list_temp1)
     return list_dt1, list_temp1, list_hum1,list_dt2, list_temp2, list_hum2
 
-def hour_line_interval_temp_time_40year(list_dt, list_temp):
+def hour_line_interval_temp_time_40year(list_dt, list_temp, list_dt_year):
+    index = []
+    for i,year in enumerate(list_dt_year):
+        if year == '1979':
+            index.append(i)
+            # print(index)
     F1, AX1 = plt.subplots()
-    AX1.plot(list_dt, list_temp)
-    print(type(list_dt))
+    AX1.plot(list_dt[index], list_temp[index])
     AX1.grid()
-    plt.xticks(np.arange(0,len(list_dt),len(list_dt)/5), rotation='vertical')
-    AX1.set_title('Temperature vs Time from 01/02/2021-06/02/2021')
+    # # plt.xticks(np.arange(0,len(list_dt),len(list_dt)/5), rotation='vertical')
+    AX1.set_title('Test')
     AX1.set_xlabel('Time')
     AX1.set_ylabel('Temperature (K)')
-    plt.savefig(output_plot + 'Temperature vs Time_Line Chart.png')
+    plt.savefig(output_plot + 'Test.png')
     plt.show()
     
 def hour_scatter_interval_temp_time(list_dt, list_temp):
@@ -167,11 +172,11 @@ def compare_forecast(list_dt1, list_temp1, list_hum1, list_dt2, list_temp2, list
     
     
 def main():   
-    data, list_dt, list_temp, list_hum  = ChasseneuilWeather_Final()
+    data, list_dt, list_temp, list_hum, list_dt_year  = ChasseneuilWeather_Final()
     # list_dt1, list_temp1, list_hum1,list_dt2, list_temp2, list_hum2 = forecast()
     # hour_scatter_interval_temp_time(list_dt, list_temp)
     # hour_line_interval_temp_time(list_dt, list_temp)
-    # hour_line_interval_temp_time_40year(list_dt, list_temp)
+    hour_line_interval_temp_time_40year(list_dt, list_temp,list_dt_year)
     # hour_bar_interval(list_dt, list_temp)
     # hour_scatter_interval_temp_hum(list_hum, list_temp)
     # compare_forecast(list_dt1, list_temp1, list_hum1, list_dt2, list_temp2, list_hum2)
