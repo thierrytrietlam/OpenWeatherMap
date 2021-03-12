@@ -109,10 +109,10 @@ def hour_line_interval_temp_time_1year(list_dt, list_temp, list_dt_year):
     AX1.plot(new_list_dt, new_list_temp)
     AX1.grid()
     plt.xticks(np.arange(0,len(new_list_dt),len(new_list_dt)/5), rotation='vertical')
-    AX1.set_title('Test')
+    AX1.set_title('Temperature in 1979')
     AX1.set_xlabel('Time')
     AX1.set_ylabel('Temperature (K)')
-    plt.savefig(output_plot + 'Test.png')
+    plt.savefig(output_plot + 'Temperature in 1979.png')
     plt.show()
     
 def hour_line_interval_temp_time_40years(list_dt, list_temp, list_dt_40months):
@@ -200,8 +200,8 @@ def main():
     # list_dt1, list_temp1, list_hum1,list_dt2, list_temp2, list_hum2 = forecast()
     # hour_scatter_interval_temp_time(list_dt, list_temp)
     # hour_line_interval_temp_time(list_dt, list_temp)
-    # hour_line_interval_temp_time_1year(list_dt, list_temp,list_dt_year)
-    hour_line_interval_temp_time_40years(list_dt, list_temp, list_dt_40months)
+    hour_line_interval_temp_time_1year(list_dt, list_temp,list_dt_year)
+    # hour_line_interval_temp_time_40years(list_dt, list_temp, list_dt_40months)
     # hour_bar_interval(list_dt, list_temp)
     # hour_scatter_interval_temp_hum(list_hum, list_temp)
     # compare_forecast(list_dt1, list_temp1, list_hum1, list_dt2, list_temp2, list_hum2)
