@@ -66,7 +66,7 @@ def ChasseneuilWeather_Final():
 def forecast():
     # Open a JSON file
     # with open('ChasseneuilWeather_Final.json') as json_file:
-    with open ('exact_everyhourforecast2021-02-06-00.json') as json_file:
+    with open ('Compare.json') as json_file:
         data1 = json.load(json_file)
     list_dt1 = []
     list_temp1 = []
@@ -74,14 +74,26 @@ def forecast():
     for i in range(len(data1)):
         list_dt1.append(datetime.datetime.fromtimestamp(data1[i]['dt']).strftime('%Hh-%d/%m'))
         list_temp1.append(data1[i]['temp'])
-        list_hum1.append(data1[i]['humidity'])
+        list_hum1.append(data1[i]['humidity'])    
+        
+    with open ('exact_everyhourforecast2021-02-06-00.json') as json_file:
+        data2 = json.load(json_file)
+    list_dt2 = []
+    list_temp2 = []
+    list_hum2 = []
+    for i in range(len(data2)):
+        list_dt2.append(datetime.datetime.fromtimestamp(data2[i]['dt']).strftime('%Hh-%d/%m'))
+        list_temp2.append(data2[i]['temp'])
+        list_hum2.append(data2[i]['humidity'])
     # print(len(list_dt1))
     # print(list_dt1)
     # print(list_temp1)
+    return list_dt1, list_temp1, list_hum1,list_dt2, list_temp2, list_hum2
 
 def hour_line_interval_temp_time_40year(list_dt, list_temp):
     F1, AX1 = plt.subplots()
     AX1.plot(list_dt, list_temp)
+    print(type(list_dt))
     AX1.grid()
     plt.xticks(np.arange(0,len(list_dt),len(list_dt)/5), rotation='vertical')
     AX1.set_title('Temperature vs Time from 01/02/2021-06/02/2021')
@@ -153,14 +165,14 @@ def compare_forecast(list_dt1, list_temp1, list_hum1, list_dt2, list_temp2, list
     
     
 def main():   
-    data, list_dt, list_temp, list_hum  = ChasseneuilWeather_Final()
-    list_dt1, list_temp1, list_hum1, list_dt2, list_temp2, list_hum2 = forecast()
+    # data, list_dt, list_temp, list_hum  = ChasseneuilWeather_Final()
+    list_dt1, list_temp1, list_hum1,list_dt2, list_temp2, list_hum2 = forecast()
     # hour_scatter_interval_temp_time(list_dt, list_temp)
     # hour_line_interval_temp_time(list_dt, list_temp)
-    hour_line_interval_temp_time_40year(list_dt, list_temp)
+    # hour_line_interval_temp_time_40year(list_dt, list_temp)
     # hour_bar_interval(list_dt, list_temp)
     # hour_scatter_interval_temp_hum(list_hum, list_temp)
-    # compare_forecast(list_dt1, list_temp1, list_hum1, list_dt2, list_temp2, list_hum2)
+    compare_forecast(list_dt1, list_temp1, list_hum1, list_dt2, list_temp2, list_hum2)
     
 if __name__ == "__main__":
     main()
