@@ -52,19 +52,23 @@ def ChasseneuilWeather_Final():
     list_dt_year = []
     list_temp = []
     list_hum = []
+    list_dt_40months = []
     for i in range(len(data)):
         # Days
         # list_dt.append(datetime.datetime.fromtimestamp(data[i]['dt']).strftime('%Hh-%d/%m'))
         # Years
         list_dt.append(datetime.datetime.fromtimestamp(data[i]['dt']).strftime('%Y/%m/%d-%H'))
         list_dt_year.append(datetime.datetime.fromtimestamp(data[i]['dt']).strftime('%Y'))
+        list_dt_40months.append(datetime.datetime.fromtimestamp(data[i]['dt']).strftime('%h'))
+
 
         list_temp.append(data[i]['temp'])
         list_hum.append(data[i]['humidity'])
     # print(list_dt[0])
     # print(list_dt_year[0])
     # print(list_temp)
-    return data, list_dt, list_temp, list_hum, list_dt_year
+    # print(list_dt_40months)
+    return data, list_dt, list_temp, list_hum, list_dt_year, list_dt_40months
 
 def forecast():
     # Open a JSON file
@@ -93,22 +97,36 @@ def forecast():
     # print(list_temp1)
     return list_dt1, list_temp1, list_hum1,list_dt2, list_temp2, list_hum2
 
-def hour_line_interval_temp_time_40year(list_dt, list_temp, list_dt_year):
-    index = []
+def hour_line_interval_temp_time_1year(list_dt, list_temp, list_dt_year):
     new_list_dt = []
     new_list_temp = []
     for i,year in enumerate(list_dt_year):
         if year == '1979':
-            index.append(i)
-            # print(index)
-    for i in index:
-        new_list_dt.append(list_dt[i])
-        new_list_temp.append(list_temp[i])
+            new_list_dt.append(list_dt[i])
+            new_list_temp.append(list_temp[i])
         
     F1, AX1 = plt.subplots()
     AX1.plot(new_list_dt, new_list_temp)
     AX1.grid()
-    # # plt.xticks(np.arange(0,len(list_dt),len(list_dt)/5), rotation='vertical')
+    plt.xticks(np.arange(0,len(new_list_dt),len(new_list_dt)/5), rotation='vertical')
+    AX1.set_title('Test')
+    AX1.set_xlabel('Time')
+    AX1.set_ylabel('Temperature (K)')
+    plt.savefig(output_plot + 'Test.png')
+    plt.show()
+    
+def hour_line_interval_temp_time_40years(list_dt, list_temp, list_dt_40months):
+    new_list_dt = []
+    new_list_temp = []
+    for i,month in enumerate(list_dt_40months):
+        if month == 'Aug':
+            new_list_dt.append(list_dt[i])
+            new_list_temp.append(list_temp[i])
+        
+    F1, AX1 = plt.subplots()
+    AX1.plot(new_list_dt, new_list_temp)
+    AX1.grid()
+    plt.xticks(np.arange(0,len(new_list_dt),len(new_list_dt)/5), rotation='vertical')
     AX1.set_title('Test')
     AX1.set_xlabel('Time')
     AX1.set_ylabel('Temperature (K)')
@@ -178,11 +196,12 @@ def compare_forecast(list_dt1, list_temp1, list_hum1, list_dt2, list_temp2, list
     
     
 def main():   
-    data, list_dt, list_temp, list_hum, list_dt_year  = ChasseneuilWeather_Final()
+    data, list_dt, list_temp, list_hum, list_dt_year, list_dt_40months  = ChasseneuilWeather_Final()
     # list_dt1, list_temp1, list_hum1,list_dt2, list_temp2, list_hum2 = forecast()
     # hour_scatter_interval_temp_time(list_dt, list_temp)
     # hour_line_interval_temp_time(list_dt, list_temp)
-    hour_line_interval_temp_time_40year(list_dt, list_temp,list_dt_year)
+    # hour_line_interval_temp_time_1year(list_dt, list_temp,list_dt_year)
+    hour_line_interval_temp_time_40years(list_dt, list_temp, list_dt_40months)
     # hour_bar_interval(list_dt, list_temp)
     # hour_scatter_interval_temp_hum(list_hum, list_temp)
     # compare_forecast(list_dt1, list_temp1, list_hum1, list_dt2, list_temp2, list_hum2)
