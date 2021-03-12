@@ -95,12 +95,18 @@ def forecast():
 
 def hour_line_interval_temp_time_40year(list_dt, list_temp, list_dt_year):
     index = []
+    new_list_dt = []
+    new_list_temp = []
     for i,year in enumerate(list_dt_year):
         if year == '1979':
             index.append(i)
             # print(index)
+    for i in index:
+        new_list_dt.append(list_dt[i])
+        new_list_temp.append(list_temp[i])
+        
     F1, AX1 = plt.subplots()
-    AX1.plot(list_dt[index], list_temp[index])
+    AX1.plot(new_list_dt, new_list_temp)
     AX1.grid()
     # # plt.xticks(np.arange(0,len(list_dt),len(list_dt)/5), rotation='vertical')
     AX1.set_title('Test')
