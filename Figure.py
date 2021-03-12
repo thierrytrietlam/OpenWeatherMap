@@ -45,7 +45,7 @@ def ChasseneuilWeather_Final():
     # with open('ChasseneuilWeather_Final.json') as json_file:
     with open ('ChasseneuilWeather_Final_Update_Need.json') as json_file:
         data = json.load(json_file)
-    pprint(data[0]['dt']) # Type list 1609945200
+    # pprint(data[0]['dt']) # Type list 1609945200
     # print(datetime.datetime.fromtimestamp(data[0]['dt']).strftime(%h-%d'))
     # 16-06   
     list_dt = []
@@ -55,10 +55,11 @@ def ChasseneuilWeather_Final():
         # Days
         # list_dt.append(datetime.datetime.fromtimestamp(data[i]['dt']).strftime('%Hh-%d/%m'))
         # Years
-        list_dt.append(datetime.datetime.fromtimestamp(data[i]['dt']).strftime('%Hh-%d/%m/%y'))
+        # list_dt.append(datetime.datetime.fromtimestamp(data[i]['dt']).strftime('%Hh-%d/%m/%y'))
+        list_dt.append(data[i]['dt'])
         list_temp.append(data[i]['temp'])
         list_hum.append(data[i]['humidity'])
-    # print(list_dt)
+    print(list_dt)
     # print(list_temp)
     return data, list_dt, list_temp, list_hum
 
@@ -78,19 +79,16 @@ def forecast():
     # print(list_dt1)
     # print(list_temp1)
 
-    with open ('Compare.json') as json_file:
-        data2 = json.load(json_file)   
-    list_dt2 = []
-    list_temp2 = []
-    list_hum2 = []
-    for i in range(len(data2)):
-        list_dt2.append(datetime.datetime.fromtimestamp(data2[i]['dt']).strftime('%Hh-%d/%m'))
-        list_temp2.append(data2[i]['temp'])
-        list_hum2.append(data2[i]['humidity'])
-    # print(len(list_dt2)) 
-    # print(list_dt2)
-    # print(list_temp2)
-    return list_dt1, list_temp1, list_hum1, list_dt2, list_temp2, list_hum2
+def hour_line_interval_temp_time_40year(list_dt, list_temp):
+    F1, AX1 = plt.subplots()
+    AX1.plot(list_dt, list_temp)
+    AX1.grid()
+    plt.xticks(np.arange(0,len(list_dt),len(list_dt)/5), rotation='vertical')
+    AX1.set_title('Temperature vs Time from 01/02/2021-06/02/2021')
+    AX1.set_xlabel('Time')
+    AX1.set_ylabel('Temperature (K)')
+    plt.savefig(output_plot + 'Temperature vs Time_Line Chart.png')
+    plt.show()
     
 def hour_scatter_interval_temp_time(list_dt, list_temp):
     #Plot Latitude Data Versus Maximum Temperature Data
@@ -158,7 +156,8 @@ def main():
     data, list_dt, list_temp, list_hum  = ChasseneuilWeather_Final()
     list_dt1, list_temp1, list_hum1, list_dt2, list_temp2, list_hum2 = forecast()
     # hour_scatter_interval_temp_time(list_dt, list_temp)
-    hour_line_interval_temp_time(list_dt, list_temp)
+    # hour_line_interval_temp_time(list_dt, list_temp)
+    hour_line_interval_temp_time_40year(list_dt, list_temp)
     # hour_bar_interval(list_dt, list_temp)
     # hour_scatter_interval_temp_hum(list_hum, list_temp)
     # compare_forecast(list_dt1, list_temp1, list_hum1, list_dt2, list_temp2, list_hum2)
