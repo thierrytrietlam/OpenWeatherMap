@@ -127,10 +127,10 @@ def hour_line_interval_temp_time_40years(list_dt, list_temp, list_dt_40months):
     AX1.plot(new_list_dt, new_list_temp)
     AX1.grid()
     plt.xticks(np.arange(0,len(new_list_dt),len(new_list_dt)/5), rotation='vertical')
-    AX1.set_title('Test')
+    AX1.set_title('The temperature in all January months 1979-2021')
     AX1.set_xlabel('Time')
     AX1.set_ylabel('Temperature (K)')
-    plt.savefig(output_plot + 'Test.png')
+    plt.savefig(output_plot + 'The temperature in all January months 1979-2021.png')
     plt.show()
     
 def hour_scatter_interval_temp_time(list_dt, list_temp):
@@ -187,24 +187,24 @@ def compare_forecast(list_dt1, list_temp1, list_hum1, list_dt2, list_temp2, list
     plt.plot(list_dt1, list_temp2, label = "historical")
     plt.xticks(np.arange(0,len(list_dt1),len(list_dt1)/5), rotation='vertical')
 
-    plt.title('Compare Historical and Forecast Data')
+    plt.title('Compare Historical and Forecast Data 06/02/2021-07/02/2021')
     plt.xlabel('Time')
     plt.ylabel('Temperature (K)')
-    plt.savefig(output_plot + 'Test_Line.png')
+    plt.savefig(output_plot + 'Compare Historical and Forecast Data.png')
     plt.legend()
     plt.show()
     
     
 def main():   
     data, list_dt, list_temp, list_hum, list_dt_year, list_dt_40months  = ChasseneuilWeather_Final()
-    # list_dt1, list_temp1, list_hum1,list_dt2, list_temp2, list_hum2 = forecast()
+    list_dt1, list_temp1, list_hum1,list_dt2, list_temp2, list_hum2 = forecast()
     # hour_scatter_interval_temp_time(list_dt, list_temp)
     # hour_line_interval_temp_time(list_dt, list_temp)
-    hour_line_interval_temp_time_1year(list_dt, list_temp,list_dt_year)
+    # hour_line_interval_temp_time_1year(list_dt, list_temp,list_dt_year)
     # hour_line_interval_temp_time_40years(list_dt, list_temp, list_dt_40months)
     # hour_bar_interval(list_dt, list_temp)
     # hour_scatter_interval_temp_hum(list_hum, list_temp)
-    # compare_forecast(list_dt1, list_temp1, list_hum1, list_dt2, list_temp2, list_hum2)
+    compare_forecast(list_dt1, list_temp1, list_hum1, list_dt2, list_temp2, list_hum2)
     
 if __name__ == "__main__":
     main()
