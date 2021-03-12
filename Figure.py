@@ -49,17 +49,19 @@ def ChasseneuilWeather_Final():
     # print(datetime.datetime.fromtimestamp(data[0]['dt']).strftime(%h-%d'))
     # 16-06   
     list_dt = []
+    list_dt_year = []
     list_temp = []
     list_hum = []
     for i in range(len(data)):
         # Days
         # list_dt.append(datetime.datetime.fromtimestamp(data[i]['dt']).strftime('%Hh-%d/%m'))
         # Years
-        # list_dt.append(datetime.datetime.fromtimestamp(data[i]['dt']).strftime('%Hh-%d/%m/%y'))
-        list_dt.append(data[i]['dt'])
+        list_dt.append(datetime.datetime.fromtimestamp(data[i]['dt']).strftime('%Y/%m/%d-%H'))
+        list_dt_year.append(datetime.datetime.fromtimestamp(data[i]['dt']).strftime('%Y'))
+
         list_temp.append(data[i]['temp'])
         list_hum.append(data[i]['humidity'])
-    print(list_dt)
+    print(list_dt[0])
     # print(list_temp)
     return data, list_dt, list_temp, list_hum
 
@@ -165,14 +167,14 @@ def compare_forecast(list_dt1, list_temp1, list_hum1, list_dt2, list_temp2, list
     
     
 def main():   
-    # data, list_dt, list_temp, list_hum  = ChasseneuilWeather_Final()
-    list_dt1, list_temp1, list_hum1,list_dt2, list_temp2, list_hum2 = forecast()
+    data, list_dt, list_temp, list_hum  = ChasseneuilWeather_Final()
+    # list_dt1, list_temp1, list_hum1,list_dt2, list_temp2, list_hum2 = forecast()
     # hour_scatter_interval_temp_time(list_dt, list_temp)
     # hour_line_interval_temp_time(list_dt, list_temp)
     # hour_line_interval_temp_time_40year(list_dt, list_temp)
     # hour_bar_interval(list_dt, list_temp)
     # hour_scatter_interval_temp_hum(list_hum, list_temp)
-    compare_forecast(list_dt1, list_temp1, list_hum1, list_dt2, list_temp2, list_hum2)
+    # compare_forecast(list_dt1, list_temp1, list_hum1, list_dt2, list_temp2, list_hum2)
     
 if __name__ == "__main__":
     main()
