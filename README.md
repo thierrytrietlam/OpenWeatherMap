@@ -162,11 +162,13 @@ Third, I developed two ways to analyze the data for a long time. The first way a
 ![image](https://raw.githubusercontent.com/henry0905/OpenWeatherMap/main/images/Temperature%20in%201979.png)
 
 Figure 4: The temperature in 1979.
+
 From figure 4, we see the maximum temperature was recorded in summer and the minimum temperature was recorded in winter.
 
 ![image](https://raw.githubusercontent.com/henry0905/OpenWeatherMap/main/images/The%20temperature%20in%20all%20January%20months%201979-2021.png)
 
 Figure 5: The temperature in all January months 1979-2021.
+
 As we can see in figure 5, the trend of temperature was increasing progressively following the time.
 
 ## Forecast Data
@@ -190,4 +192,5 @@ In this sector, we analyze the different historical and forecast data of the sam
 ![image](https://raw.githubusercontent.com/henry0905/OpenWeatherMap/main/images/Compare%20Historical%20and%20Forecast%20Data.png)
 
 Figure 9: The comparison of historical and forecast data 06/02/2021-07/02/2021.
+
 From figure 9, the difference between historical and forecast data is not really significant. We can conclude their program is predictably exact.
