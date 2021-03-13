@@ -16,9 +16,26 @@ from datetime import datetime
 from pyowm_helper import get_temperature
 from pyowm_helper import get_humidity
 from pyowm_helper import get_pressure
+import os
+
 
 a = datetime.now().strftime("%Y-%m-%d")
 degree_sign= u'\N{DEGREE SIGN}' # Symbol of temperature
+#Define Current Path & Items in Current Working Directory
+current_path = os.getcwd()
+current_directory = os.listdir()
+
+#Loop Through Items in Current Working Directory
+for item in current_directory:
+    
+    #Find Folder for Global Weather Data
+        
+    #Find Folder for Output Plots
+    if item.lower().find('images') >= 0:
+        
+        #Define File Path for Output Plots
+        output_file = current_path + '/' + item + '/'
+
 
 def init_plot_t():
     # Create a window has a titlebar, width and height in inches
@@ -157,7 +174,7 @@ if __name__ == '__main__':
     fig1 = plt.gcf()
     plt.show()
     plt.draw()
-    fig1.savefig("forecast_temp_" +a+".png")
+    fig1.savefig(output_file + "forecast_temp_" +a+".png")
 
 
     
@@ -169,7 +186,7 @@ if __name__ == '__main__':
     write_humidity_on_bar_chart(bar_h_min, bar_h_max)
     fig2 = plt.gcf()
     plt.show()
-    fig2.savefig("forecast_humi_" +a+".png")
+    fig2.savefig(output_file + "forecast_humi_" +a+".png")
 
     # Show pressure
     days, pre_min, pre_max = get_pressure()
@@ -179,4 +196,4 @@ if __name__ == '__main__':
     write_humidity_on_bar_chart(bar_p_min, bar_p_max)
     fig3 = plt.gcf()
     plt.show()
-    fig3.savefig("forecast_pres_" +a+".png")
+    fig3.savefig(output_file + "forecast_pres_" +a+".png")
