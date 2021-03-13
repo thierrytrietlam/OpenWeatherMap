@@ -169,16 +169,6 @@ def hour_line_interval_temp_time(list_dt, list_temp):
     plt.savefig(output_plot + 'Temperature vs Time_Line Chart.png')
     plt.show()
     
-def hour_bar_interval(list_dt, list_temp):
-    F1, AX1 = plt.subplots()
-    AX1.bar(list_dt, list_temp, width=0.4)
-    # AX1.grid()
-    plt.xticks(np.arange(0,len(list_dt),len(list_dt)/6), rotation='vertical')
-    AX1.set_title('Test_bar')
-    AX1.set_xlabel('Time')
-    AX1.set_ylabel('Temperature (K)')
-    plt.savefig(output_plot + 'Test_bar.png')
-    plt.show()
     
 def compare_forecast(list_dt1, list_temp1, list_hum1, list_dt2, list_temp2, list_hum2):
     plt.plot(list_dt1, list_temp1, label = "forecast")
@@ -202,7 +192,6 @@ def main():
     # hour_line_interval_temp_time(list_dt, list_temp)
     # hour_line_interval_temp_time_1year(list_dt, list_temp,list_dt_year)
     # hour_line_interval_temp_time_40years(list_dt, list_temp, list_dt_40months)
-    # hour_bar_interval(list_dt, list_temp)
     # hour_scatter_interval_temp_hum(list_hum, list_temp)
     compare_forecast(list_dt1, list_temp1, list_hum1, list_dt2, list_temp2, list_hum2)
     

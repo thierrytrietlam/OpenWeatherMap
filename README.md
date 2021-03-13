@@ -144,26 +144,37 @@ From figure 9, the difference between historical and forecast data is not really
 
 # Python Programming code
 
-## API key
+## OpenWeatherMap
 ### api_key.py
+
 First, we need to have an API key of OpenWeatherMap to use their services. In my part, we have the api "db8b55378d950841ba215808e438c082".
 We add this api key to the OS environment. This program is to call this key.
 
 ### location.py
+
 There are 4 ways to identify a location following the OpenWeatherMap library. There are:
 1. name
 2. id
 3. latitude - longitude
 4. zipcode
 
+### weatherPy.py
+
+This program aims to take the data following locations. For example, we can get all data of cities from longtitude 0-50.
+
+
 ## Current data
+
 ### current.py
-This program allows you to get all the current weather data. We can use it when we need data at the current time of the experiment.
+
+This program allows you to get all the current weather data. We can use it when we need data at the current time of the experiment. It also provides the current weather description.
 
 ## Historical data
+
 This part is aimed to create a historical database from 01/01/1979 to the present focused on the temperature and humidity factors. 
 It is required to update everyday from the website because of the limitation of the free account. So we created a program to store and analyze the data in the JSON type.
 There are 2 programs:
+
 ### learningjson.py
 A draft illustrates many functions and examples of JSON files and a 'list of dictionaries' analysis. 
 
@@ -183,16 +194,32 @@ This program is one of the most important parts in order to store and analyze th
 ### weatherforecast.py: 
 1. Get the forecast weather in the next 5 days, 3-hour interval.
 2. Get the forecast weather in the next 48 hours, 1-hour interval.
-3. Write all data as the JSON type including:
-
-| Name                                     |Type  | Description                                | Exemple                                                                          |
-|------------------------------------------|------|--------------------------------------------|----------------------------------------------------------------------------------|
-| **threehoursforecast** *yyyy-mm-dd-hh*      | Json | Needed data 3-hour interval for 5 days     | [threehoursforecast2021-01-06-16.json](https://cloud.ensma.fr/s/cJ5R6YqSnAYepZQ)      |
-| **everyhourforecast** *yyyy-mm-dd-hh*       | Json | Detailed data 1-hour interval for 48 hours | [everyhourforecast2021-01-06-16.json](https://cloud.ensma.fr/s/FyB6TptLXtZjjwq)       |
-| **exact_everyhourforecast** *yyyy-mm-dd-hh* | Json | Needed data 1-hour interval for 48 hours   | [exact_everyhourforecast2021-01-06-16.json](https://cloud.ensma.fr/s/CQr5Sg3D7D2jtcJ) |
-
-
+3. Write all data as the JSON type.
 4. Get Weather At a Specific Time.
 5. Get Weather at a Specific Time of tomorrow.
 6. Check for certain weather conditions in a forecast.
 7. Check if a particular weather condition exists at a specified time for 5 days.
+
+### timezone_conversation.py
+
+Change the Unix timestamp to normal time and vice versa.
+
+### pyown_helper.py
+
+Use the Pyown library to transform forecast data.
+
+## Analysis data
+
+### weatherGUI.py
+
+Draw the bar chart of forecast data.
+
+### Figure.py
+
+This program draws almost figures in this project.
+1. Draw a line time-temperature chart of 1-hour interval data of one year. 
+2. Draw a line time-temperature chart of 1-hour interval data of one month for 40 years.
+3. Draw a scatter plot of temperature and time.
+4. Draw a scatter plot of temperature and humidity.
+5. Draw a line plot of temperature and time.
+6. Draw the comparison of historical and forecast data.
