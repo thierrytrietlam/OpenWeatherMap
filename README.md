@@ -129,4 +129,65 @@ This program is one of the most important parts in order to store and analyze th
 6. Check for certain weather conditions in a forecast.
 7. Check if a particular weather condition exists at a specified time for 5 days.
 
-# Continue
+# Result Analysis
+After stocking the data, we analyzed this. For this sector, we consider the historical and forecast data.
+
+## Current Data
+
+For the current data, it has one value so we can ignore it.
+
+
+![image](https://raw.githubusercontent.com/henry0905/OpenWeatherMap/main/images/Current.png)
+
+Figure 1: An example of current data.
+
+## Historical Data
+### Short period
+First, we demonstrate the relation between time and temperature in a short time following some recent data. From these figures, we analyze the trend of the data. From figure 2, we consider the maximum variation of temperature and the time range where the temperature reached maximum or minimum values.
+
+![image](https://raw.githubusercontent.com/henry0905/OpenWeatherMap/main/images/Temp%20vs%20Time%2001-02-21.png)
+
+Figure 2: The relation between temperature and time from 01/02/2021 to 06/02/2021.
+
+Second, it is possible to analyze any 2 aspects (except the *weather_description*) including *time, temperature, pressure, humidity, wind_speed, and wind_deg*. For example, we demonstrate the relation between humidity-temperature, pressure-humidity, wind_speed-wind_deg, etc. From figure 3, we see the distribution of the humidity is concentrated in the range of 87-93%.
+
+![image](https://raw.githubusercontent.com/henry0905/OpenWeatherMap/main/images/Humidity_vs_Time.png)
+
+Figure 3: The relation between humidity and temperature from 01/02/2021 to 06/02/2021.
+
+### Long period
+
+Third, I developed two ways to analyze the data for a long time. The first way aims to show the trend of temperature following the time in a year which analyzes the trend of temperature in one year. In this figure, we take an example of the year 1979. The second ways analyze the data for one month from 1979 until the present which demonstrates the temperature variation for a long time.
+
+![image](https://raw.githubusercontent.com/henry0905/OpenWeatherMap/main/images/Temperature%20in%201979.png)
+
+Figure 4: The temperature in 1979.
+From figure 4, we see the maximum temperature was recorded in summer and the minimum temperature was recorded in winter.
+
+![image](https://raw.githubusercontent.com/henry0905/OpenWeatherMap/main/images/The%20temperature%20in%20all%20January%20months%201979-2021.png)
+
+Figure 5: The temperature in all January months 1979-2021.
+As we can see in figure 5, the trend of temperature was increasing progressively following the time.
+
+## Forecast Data
+As we mentioned in the Data section, there are two ways to get the forecast data. In the 48-hour data, the figures are nearly similar to the appearance of figure 2. Next, we consider forecast 5-day data which allows us to predict the weather. There are 3 examples to demonstrate forecast data which I took one previous day of their current date.
+
+![image](https://raw.githubusercontent.com/henry0905/OpenWeatherMap/main/images/forecast_temp_2021-03-12.png)
+
+Figure 6: The forecast temperature was taken on 12th March 2021.
+
+![image](https://raw.githubusercontent.com/henry0905/OpenWeatherMap/main/images/forecast_humi_2021-03-12.png)
+
+Figure 7: The forecast humidity was taken on 12th March 2021.
+
+![image](https://raw.githubusercontent.com/henry0905/OpenWeatherMap/main/images/forecast_pres_2021-03-12.png)
+
+Figure 8: The forecast pressure was taken on 12th March 2021.
+
+# The errors between historical and forecast data
+In this sector, we analyze the different historical and forecast data of the same period of time. This analysis concludes the accuracy of the OpenWeatherMap deep-learning program.
+
+![image](https://raw.githubusercontent.com/henry0905/OpenWeatherMap/main/images/Compare%20Historical%20and%20Forecast%20Data.png)
+
+Figure 9: The comparison of historical and forecast data 06/02/2021-07/02/2021.
+From figure 9, the difference between historical and forecast data is not really significant. We can conclude their program is predictably exact.
