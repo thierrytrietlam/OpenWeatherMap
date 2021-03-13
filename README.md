@@ -148,7 +148,7 @@ From figure 9, the difference between historical and forecast data is not really
 ### api_key.py
 
 First, we need to have an API key of OpenWeatherMap to use their services. In my part, we have the api "db8b55378d950841ba215808e438c082".
-We add this api key to the OS environment. This program is to call this key.
+We add this API key to the OS environment. This program is to call this key.
 
 ### location.py
 
@@ -216,7 +216,7 @@ Draw the bar chart of forecast data.
 
 ### Figure.py
 
-This program draws almost figures in this project.
+This program draws almost all figures in this project.
 1. Draw a line time-temperature chart of 1-hour interval data of one year. 
 2. Draw a line time-temperature chart of 1-hour interval data of one month for 40 years.
 3. Draw a scatter plot of temperature and time.
