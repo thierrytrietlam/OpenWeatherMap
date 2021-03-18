@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+v# -*- coding: utf-8 -*-
 """
 Created on Fri Jan  1 18:47:23 2021
 
@@ -16,7 +16,7 @@ import os
 # [] type list
 
 
-#Define Current Path & Items in Current Working Directory
+ư#Define Current Path & Items in Current Working Directory
 current_path = os.getcwd()
 current_directory = os.listdir()
 
