@@ -12,8 +12,8 @@ import time
 from pprint import pprint #Uncomment line 63
 import json
 import os
-# {} type dict
-# [] type list
+{} type dict
+[] type list
 
 
 #Define Current Path & Items in Current Working Directory
