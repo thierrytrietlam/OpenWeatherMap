@@ -101,7 +101,7 @@ def write_Json(yyyy,mm,dd,weather_data,weather_data_str):
     with open(output_file+str(yyyy)+"-"+str(mm)+"-"+str(dd)+".json", 'w') as outfile:
         json.dump(weather_data, outfile)
     # Check keys in weather_data dictionary 
-    print ("The dictionary contains the following keys: ", weather_data.keys())    
+    # print ("The dictionary contains the following keys: ", weather_data.keys())    
     
     # Check keys in keys
     # print('Check', weather_data['current'].keys())
