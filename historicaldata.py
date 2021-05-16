@@ -57,7 +57,7 @@ def date_to_unix_timestamp(yyyy,mm,dd):
     # yyyy = 2020; mm = 12; dd = 29;
     dt = datetime.datetime(yyyy, mm, dd, 19, 00, 00)
     dt_unix = int((time.mktime(dt.timetuple())))
-    print("Unix Timestamp: ",dt_unix)
+    # print("Unix Timestamp: ",dt_unix)
     # print(type(dt_unix))
     # print(str(dt_unix))
     return dt_unix
@@ -67,13 +67,13 @@ def unix_timestamp_to_date():
 # Convert unix timestamp string to readable date
 # =============================================================================
     dt_unix1= int(1284105682);
-    print(datetime.datetime.fromtimestamp(dt_unix1).strftime('%Y-%m-%d %H:%M:%S'))
+    # print(datetime.datetime.fromtimestamp(dt_unix1).strftime('%Y-%m-%d %H:%M:%S'))
     return (dt_unix1);
 
 def url_(base_url,lat_data,lon_data,dt_unix,API_key):
 # This is final url. This is concatenation of base_url, API_key and city_id
     Final_url = base_url + "lat=" + lat_data + "&lon=" + lon_data + "&dt=" + str(dt_unix) + "&appid=" + API_key
-    print(Final_url)
+    # print(Final_url)
     return Final_url
 
 def create_json(Final_url):
@@ -91,8 +91,9 @@ def create_json(Final_url):
 
 def print_json(weather_data):
     #Show JSON data
-    pprint(weather_data,indent=4) 
-    
+    # pprint(weather_data,indent=4) 
+    return weather_data
+
 def write_Json(yyyy,mm,dd,weather_data,weather_data_str): 
     #Define Current Path & Items in Current Working Directory
 
