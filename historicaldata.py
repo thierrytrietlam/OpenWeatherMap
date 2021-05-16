@@ -130,8 +130,8 @@ def select_data_json(weather_data):
         list_dt_day.append(dict_)
  
     # pprint(list_dt_day) # Type list
-    print ('Sunrise', weather_data['current']['sunrise'])  
-    print(list_dt_day)
+    # print ('Sunrise', weather_data['current']['sunrise'])  
+    # print(list_dt_day)
     return list_dt_day
 
 def write_exact_data_json(yyyy,mm,dd,list_dt_day):
@@ -186,7 +186,7 @@ def open_json():
     # Open a JSON file
     with open('ChasseneuilWeather_Final.json') as json_file:
         data = json.load(json_file)
-    pprint(data, indent = 4) # Type list
+    # pprint(data, indent = 4) # Type list
     
     return data   
 
