@@ -40,8 +40,8 @@ for item in current_directory:
 
 #Define Range of Latitudes & Longitudes
 
-print(output_file)
-print(output_file_exact)
+# print(output_file)
+# print(output_file_exact)
 
 degree_sign= u'\N{DEGREE SIGN}'
 owm = pyowm.OWM(API_KEY)
