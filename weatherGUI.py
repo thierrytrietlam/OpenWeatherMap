@@ -42,7 +42,7 @@ def init_plot_t():
     plt.figure('PyOWM Weather', figsize=(10,8))
     # Create labels and titles to the plot
     plt.xlabel('Day')
-    plt.ylabel(f'Temperature ({degree_sign}C)' )
+    plt.ylabel(f'Temperature ({degree_sign}K)' )
     plt.title('Temperature Forecast at Chasseneuil-du-Poitou')
     
 def plot_temperatures(days, temp_min, temp_max):
