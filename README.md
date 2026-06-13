@@ -147,7 +147,7 @@ From figure 9, the difference between historical and forecast data is not really
 ## OpenWeatherMap
 ### api_key.py
 
-First, we need to have an API key of OpenWeatherMap to use their services. In my part, we have the api "db8b55378d950841ba215808e438c082".
+First, we need to have an API key of OpenWeatherMap to use their services. In my part, we have the api "YOUR_API_KEY".
 We add this API key to the OS environment. This program is to call this key.
 
 ### location.py
